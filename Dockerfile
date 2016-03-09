@@ -6,11 +6,11 @@
 
 FROM ubuntu-upstart:trusty
 
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install -y build-essential nodejs libpq-dev python-dev npm git \
-                       curl libldap2-dev libsasl2-dev iputils-ping
+curl libldap2-dev libsasl2-dev iputils-ping --force-yes
 
-RUN curl -OL https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+RUN curl -OL https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 
 RUN git clone https://github.com/arachnys/cabot.git /opt/cabot
